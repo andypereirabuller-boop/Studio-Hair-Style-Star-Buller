@@ -28,7 +28,7 @@
 <body>
     <div onclick="cliqueiNaMascara()" class="mascara-formulario"></div>
 
-    <video src="./assets/star-video1.mp4" poster="./assets/studio-video studio.mp4" autoplay muted loop class="caixa-video"></video>
+<video src="./assets/star-video1.mp4" autoplay muted loop class="caixa-video"></video>
     <div class="mascara"></div>
 
     <!-- HEADER COM SUB-MENU -->
@@ -55,7 +55,7 @@
     <div class="caixa-mae">
         <div class="caixa-principal">
             
-            <p class="titulo"data-aos="fade-right" data-aos-deLay="600">Realce sua beleza natural aqui no <span>Studio Hair Style Star Buller!</span></p><br>
+<p class="titulo" data-aos="fade-right" data-aos-delay="600">Realce sua beleza natural aqui no <span>Studio Hair Style Star Buller!</span></p><br>
             <p>Mais do que cuidar da sua aparência, nosso propósito é despertar a força que existe na sua melhor versão</p>
 
             <button onclick="cliqueiNoBotao()">ENTRE EM CONTATO</button>
@@ -83,13 +83,14 @@
 </body>
 <script src="./scripts.js"></script>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            duration: 1000, 
-            once: true      
-        });
-    </script>
 
+<script>
+  // AOS já está carregado no <head>
+  AOS.init({
+    duration: 1000,
+    once: true
+  });
+</script>
 
 </html>
+
