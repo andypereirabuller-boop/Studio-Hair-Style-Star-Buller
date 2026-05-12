@@ -1,10 +1,10 @@
-/* --- CSS COMPLETO E CORRIGIDO --- */
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
 
 .logo-mario {
     height: 200px;
@@ -17,14 +17,14 @@
     align-items: center;
     justify-content: center;
     margin: 0 auto;
-    border-radius: 50%;
+    border-radius: 50%; /* Faz o círculo */
     object-fit: cover;
     overflow: hidden;
 }
 
 button {
     color: white;
-    background-color: hsl(340, 94%, 43%);
+    background-color: darkviolet;
     border-radius: 3px;
     border: none;
     width: 200px;
@@ -35,18 +35,27 @@ button {
 }
 
 button:hover {
-    background-color: hsl(340, 64%, 61%);
-    transition: 0.5s;
+    background-color: hsl(330, 56%, 67%);
     opacity: 0.8;
+    transition: 0.5s;
 }
 
 .video-mario-luigi {
-    height: 500px;
-    width: auto;
-    border-radius: 20px;
-    object-fit: contain;
-    z-index: 1;
-    position: relative;
+    height: 500px; /* Mantém a altura que você já usava */
+    width: auto;   /* Ajusta a largura proporcionalmente */
+    border-radius: 20px; /* Opcional: para deixar as bordas arredondadas */
+    object-fit: contain; /* Garante que o vídeo não seja cortado */
+    z-index: 1; /* Garante que ele fique NA FRENTE da máscara (-1) */
+    position: relative; /* Necessário para o z-index funcionar corretamente */
+}
+
+/* Ajuste para celulares */
+@media(max-width: 1100px) {
+    .video-mario-luigi {
+        width: 50vw;
+        height: auto;
+        margin-top: 50px;
+    }
 }
 
 body {
@@ -80,10 +89,6 @@ video {
     z-index: -2;
 }
 
-
-
-
-
 .mascara {
     height: 100vh;
     width: 100vw;
@@ -100,10 +105,9 @@ p {
 }
 
 span {
-    color: hsl(318, 93%, 28%);
-    text-shadow: 2px 2px 4px #E5E4E2;
+    color: darkviolet;
+   text-shadow: 2px 2px 4px silver;
 }
-
 .titulo {
     color: white;
     font-size: 40px;
@@ -115,34 +119,28 @@ span {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    text-shadow: 2px 2px 4px silver;
 }
 
-.fa-brands {
-    transition: 0.3s ease-in-out;
-    cursor: pointer;
-
+.link-watapp:hover {
+    color: white;
+    font-size: 30px;
 }
 
-.fa-brands:hover {
-    color: hsl(318, 53%, 66%);
-    text-shadow: 2px 2px 4px #E5E4E2;
-    transform: scale(1.2);
-    opacity: 0.8;
-}
-
-/* --- HEADER E SUB-MENU (CORRIGIDO) --- */
+/* --- HEADER E SUB-MENU --- */
 
 .header {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-start; /* Alinha os itens à esquerda */
     gap: 50px;
     padding: 30px 0;
-    padding-left: 40px;
+    padding-left: 40px;          /* Dá um recuo da borda esquerda */
     position: relative;
     z-index: 10;
 }
 
+/* Estilo unificado para links e o botão do dropdown */
 .header a, .dropbtn {
     color: white;
     text-decoration: none;
@@ -154,61 +152,64 @@ span {
     border: none;
 }
 
+/* Efeito hover unificado para os itens principais */
 .header a:hover, .dropdown:hover .dropbtn {
-    color: hsl(318, 93%, 28%);
+    color: darkviolet;
     font-size: 27px;
 }
 
+/* Container do Dropdown */
 .dropdown {
     position: relative;
     display: flex;
     align-items: center;
 }
 
+/* Conteúdo do Sub-menu */
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro para leitura */
-    min-width: 300px; /* Aumentado para caber o texto ao lado do ícone */
+    background-color: none;
+    min-width: 220px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.5);
     border-radius: 8px;
-    top: 100%;
-    left: 0; /* Alinhado à esquerda do botão */
+    top: 100%; /* Inicia logo abaixo do texto */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza o sub-menu em relação ao botão */
     padding: 10px 0;
     z-index: 100;
 }
 
-/* ESTA É A PARTE QUE COLOCA O SÍMBOLO AO LADO DO TEXTO */
+/* Estilo dos links de dentro do sub-menu */
 .dropdown-content a {
-    display: flex;          /* Transforma em flexbox */
-    flex-direction: row;    /* Garante a linha (ícone -> texto) */
-    align-items: center;    /* Centraliza o texto verticalmente com o ícone */
-    gap: 30px;              /* Espaço entre o ícone e o texto */
+     display: flex !important;       /* Alinha os itens em linha (lado a lado) */
+    align-items: center; 
+     
+    flex-direction: row;
+    justify-content:flex-end;
+    box-sizing: border-box;/* Centraliza verticalmente o ícone e o texto */
+    gap: 12px; 
     color: white;
     padding: 12px 20px;
     font-size: 18px;
-    text-align: left;
+    display: block;
+    text-align: left; /* Esquerda o texto dentro da caixa */
     width: 100%;
-      
-}
-
-/* Remove margens extras do parágrafo que você usou no HTML */
-.dropdown-content a i p {
-    margin: 0;
-    display: inline;
 }
 
 .dropdown-content a:hover {
-    background-color: hsl(332, 55%, 55%);
+    background-color: hsl(330, 56%, 67%);
     color: white;
     font-size: 19px;
+    padding-left: 0; /* Remove deslocamento para manter centralizado */
 }
 
+/* Faz o menu aparecer */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-/* --- FORMULÁRIO --- */
+/* --- FIM DO HEADER --- */
 
 .formulario-fale-conosco {
     background-color: white;
@@ -254,12 +255,8 @@ textarea {
 
 /* Responsividade */
 @media(max-width: 1100px) {
-    .video-mario-luigi {
-        width: 50vw;
-        height: auto;
-        margin-top: 50px;
-    }
-    
+    p { display: flex; }
+
     .caixa-mae {
         flex-direction: column;
         padding: 10px;
@@ -270,16 +267,24 @@ textarea {
         display: flex;
         align-items: center;
         flex-direction: column;
-        width: 100%;
+    }
+
+    .imagem-mario-luigi {
+        width: 80vw;
+        height: auto;
     }
 
     .header {
         margin: 10px;
-        gap: 20px;
-        padding-left: 10px;
+        gap: 30px;
+        font-size: 20px;
     }
 
     .header a, .dropbtn {
-        font-size: 18px;
+        font-size: 20px;
+    }
+    
+    .dropdown-content {
+        min-width: 160px;
     }
 }
